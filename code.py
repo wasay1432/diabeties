@@ -1,7 +1,8 @@
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import pandas as pd
+import scipy as sp
 
-file = pd.read_csv("C:/Users/Ahtisham Shami/Downloads/titanic/train.csv")
+file = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/diabetes.csv')
 
 a = file.head(10)
 
@@ -12,12 +13,30 @@ i = True
 while i == True:
 
     def glucose():
-        plt.plot(age, glu, marker='o', linestyle='-', color='b')
+        plt.plot(age, glu, marker='o',linestyle='-', color='b')
         plt.title('')
-        plt.xlabel('age')
-        plt.ylabel('glucose level')
-        plt.grid(true)
+        plt.xlabel('Age')
+        plt.ylabel('Glucose Level')
+        plt.grid(True)
         plt.show()
         return glucose
 
-print(glucose())
+    def bp():
+        a.BloodPressure.value_counts().plot(kind='density')
+        plt.title("Blood Pressue")
+        plt.grid(True)
+        plt.show()
+        return bp
+
+    inp = input("1: Glucose\n2: Blood Pressure\n3: Quit\nEnter the value: ")
+    if inp == "1":
+        print(glucose())
+
+    elif inp == "2":
+        print(bp())
+
+    elif inp == "3":
+        break
+
+    else:
+        print("Enter the Number (1 to 3)")
